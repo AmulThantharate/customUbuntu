@@ -17,6 +17,7 @@ check_file auto/config
 check_file config/package-lists/nebula-base.list.chroot
 check_file config/package-lists/nebula-desktop.list.chroot
 check_file config/package-lists/nebula-installer.list.chroot
+check_file config/package-lists/nebula-devops.list.chroot
 
 for f in auto/config scripts/*.sh; do
     [ -f "$f" ] || continue
