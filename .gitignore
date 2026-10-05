@@ -1,2 +1,11 @@
-.vagrant/
-Vagrantfile
+build/
+cache/
+chroot/
+binary/
+bootstrap/
+.tmp/
+build-logs/
+*.iso
+*.img
+*.sha256
+*.gpg
