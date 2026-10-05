@@ -1,0 +1,26 @@
+name: Validate NebulaOS build tree
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y live-build shellcheck
+      - name: Validate shell
+        run: |
+          shellcheck auto/config scripts/*.sh
+          ./scripts/validate.sh
+      - name: Validate live-build installation
+        run: |
+          lb --version
+          lb config --help >/dev/null
