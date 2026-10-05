@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+exec lb config noauto \
+    --mode ubuntu \
+    --distribution noble \
+    --architectures amd64 \
+    --archive-areas "main restricted universe multiverse" \
+    --linux-flavours generic \
+    --binary-images iso-hybrid \
+    --memtest none \
+    --apt-recommends false \
+    --checksums sha256 \
+    --compression xz \
+    --iso-application "NebulaOS Live & Installable DevOps Distro" \
+    --iso-publisher "NebulaOS Project <https://nebulaos.dev>" \
+    --iso-volume "NEBULAOS_2404" \
+    --parent-mirror-bootstrap "http://archive.ubuntu.com/ubuntu/" \
+    --parent-mirror-chroot "http://archive.ubuntu.com/ubuntu/" \
+    --parent-mirror-binary "http://archive.ubuntu.com/ubuntu/" \
+    --mirror-bootstrap "http://archive.ubuntu.com/ubuntu/" \
+    --mirror-chroot "http://archive.ubuntu.com/ubuntu/" \
+    --mirror-binary "http://archive.ubuntu.com/ubuntu/" \
+    "$@"
