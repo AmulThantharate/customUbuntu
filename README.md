@@ -1,3 +1,5 @@
+> **Production build note (2026-10-05):** The original Day 2 `auto/build` and `auto/clean` examples are tutorial material and must not be used as-is. They recursively invoke `lb build`/`lb clean`. Use the `production-ready` branch and `PRODUCTION_BUILD.md` for the maintained build workflow. The production baseline deliberately omits unsupported `--bootloaders` configuration for compatibility with the live-build toolchain used by this project.
+
 # NebulaOS: Custom Ubuntu Live & Installable DevOps Distro
 ### The Complete 14-Day Engineering Blueprint & Master Reference
 
