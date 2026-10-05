@@ -4,8 +4,13 @@ set -eu
 exec lb config noauto \
     --mode ubuntu \
     --distribution noble \
+    --parent-distribution noble \
+    --parent-debian-installer-distribution noble \
+    --debian-installer none \
+    --debian-installer-distribution noble \
     --architectures amd64 \
     --archive-areas "main restricted universe multiverse" \
+    --parent-archive-areas "main restricted universe multiverse" \
     --linux-flavours generic \
     --binary-images iso-hybrid \
     --memtest none \
