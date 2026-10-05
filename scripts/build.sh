@@ -22,8 +22,21 @@ echo "    source: $ROOT_DIR"
 echo "    live-build: $(lb --version)"
 echo "    log: $LOG"
 
-lb config 2>&1 | tee "$LOG"
-lb build 2>&1 | tee -a "$LOG"
+if ! lb config >"$LOG" 2>&1; then
+    cat "$LOG"
+    echo "ERROR: lb config failed." >&2
+    exit 1
+fi
+
+cat "$LOG"
+
+if ! lb build >>"$LOG" 2>&1; then
+    cat "$LOG"
+    echo "ERROR: lb build failed." >&2
+    exit 1
+fi
+
+cat "$LOG"
 
 echo "==> Build finished"
 ls -lh ./*.iso 2>/dev/null || true
